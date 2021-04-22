@@ -1,0 +1,72 @@
+<h3>Inserir Aeronave</h3>
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <div [hidden]="submitted" style="width: 400px;">
+      <form [formGroup]="aeronavesaveform" #saveaeronave (ngSubmit)="saveAeronave(saveAeronave)">
+        <div class="form-group">
+          <label for="name">Nome:</label>
+          <input type="text" class="form-control" formControlName="nome" data-toggle="tooltip" data-placement="right"
+            title="Informe o Nome da Aeronave">
+          <div class="alert alert-danger" *ngIf="(AeronaveName.touched) && (AeronaveName.invalid)"
+            style="margin-top: 5px;">
+            <span *ngIf="AeronaveName.errors.required">Nome da aeronave é obrigatório</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="name">Marca: </label>
+          <input type="text" class="form-control" formControlName="marca" data-toggle="tooltip" data-placement="right"
+            title="Informe a Marca da Aeronave">
+          <div class="alert alert-danger" *ngIf="(AeronaveMarca.touched) && (AeronaveMarca.invalid)"
+            style="margin-top: 5px;">
+            <span *ngIf="AeronaveMarca.errors.required">Marca da aeronave é obrigatório</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="name">Ano: </label>
+          <input type="text" class="form-control" formControlName="ano" data-toggle="tooltip" data-placement="right"
+            title="Informe o Ano da Aeronave">
+          <div class="alert alert-danger" *ngIf="(AeronaveAno.touched) && (AeronaveAno.invalid)"
+            style="margin-top: 5px;">
+            <span *ngIf="AeronaveAno.errors.required">Ano da aeronave é obrigatório</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="name">Descricao: </label>
+          <input type="text" class="form-control" formControlName="descricao" data-toggle="tooltip"
+            title="Informe a Descrição da Aeronave">
+          <div class="alert alert-danger" *ngIf="(AeronaveDescricao.touched) && (AeronaveDescricao.invalid)"
+            style="margin-top: 5px;">
+            <span *ngIf="AeronaveDescricao.errors.required">Descrição da aeronave é obrigatório</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="name">Vendido: </label>
+          <div class="form-group">
+            <select id="vendido" name="reclamado" formControlName="vendido">
+              <option [value]="false">Não</option>
+              <option [value]="true">Sim</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-success">Salvar</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-sm-4"></div>
+</div>
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <div [hidden]="!submitted">
+      <h4>Aeronave Adicionada com Sucesso!</h4>
+      <button (click)="addAeronaveForm()" class='btn btn-primary'>Add More Aeronave</button>
+    </div>
+  </div>
+  <div class="col-sm-4"></div>
+</div>
